@@ -5,12 +5,21 @@ fun main() {
 
     println(HERO_NAME)
     var playerLevel = 4
+    val hasBefriendedBarbarians = true
+    val hasAngeredBarbarians = false
+    val playerClass = "paladin"
     println(playerLevel)
 
     if (playerLevel == 1) {
         println("Meet Mr Bubbles in the land of soft things.")
     } else if (playerLevel <= 5) {
-        println("Save the town from barbarian invasions.")
+        val canTalkToBarbarians = !hasAngeredBarbarians &&(hasBefriendedBarbarians || playerClass == "barbarian")
+        val barbarianQuest: String = if (canTalkToBarbarians) {
+            "Convince the barbarians to call off their invasion."
+        } else {
+            "Save the town from barbarian invasions."
+        }
+        println(barbarianQuest)
     } else if (playerLevel == 6) {
         println("Locate the enchanted sword.")
     } else if (playerLevel == 7){
